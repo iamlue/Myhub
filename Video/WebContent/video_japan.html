@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Basic SideMenu - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="easyui-1.7/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="easyui-1.7/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/japan.css?ver=2">
+    <script type="text/javascript" src="easyui-1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="easyui-1.7/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/japan.js?ver=2"></script>
+</head>
+
+<body class="easyui-layout">
+<div data-options="region:'west',title:'菜单',split:true" style="width:150px;">
+    <div id="sm"></div>
+</div>
+<div data-options="region:'east',title:'菜单',split:true" style="width:150px;">
+    <a id="japan_add" href="javascript:" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+    <br/>
+    过滤编号：<input id="videoNum" class="easyui-textbox" style="width:100%;height:32px">
+    <a id="japan_delete" href="javascript:" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">删除</a>
+</div>
+<div id="japan_delete_dialog" style="display: none;">
+    <form id="japan_delete_form" method="post">
+        <div>
+            <label>编号:</label>
+            <input class="easyui-textbox" name="num"/>
+        </div>
+    </form>
+</div>
+<div id="japan_dialog" style="display: none;">
+    <form id="japan_form" method="post" enctype="multipart/form-data">
+        <div>
+
+            <label for="japan_href">页面超链接:</label>
+
+            <input class="easyui-textbox" name="href"/>
+
+        </div>
+
+        <div>
+            <label for="name">标题:</label>
+
+            <input class="easyui-textbox" name="name"/>
+
+        </div>
+        <div>
+            <label for="brief">描述:</label>
+
+            <input class="easyui-textbox" name="brief"/>
+
+        </div>
+        <div>
+
+            <label for="image">图片路径:</label>
+
+            <input class="easyui-filebox" name="image"/>
+
+        </div>
+        <div>
+
+            <label for="num" ">编号:</label>
+
+            <input class="easyui-textbox" name="num"/>
+
+        </div>
+        <div>
+
+            <label for="local">视频路径:</label>
+
+            <input class="easyui-textbox" name="local"/>
+
+        </div>
+
+
+    </form>
+</div>
+<div id="japan_list" data-options="region:'center',title:'人物列表'" style="padding:5px;background:#eee;padding-left: 50px;
+    padding-right: 50px;width:700px">
+    <ul id="japan_ul_id"></ul>
+
+</div>
+</body>
+</html>

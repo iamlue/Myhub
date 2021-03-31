@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lue.dao.mapper.JapanMapper">
+    <!-- 添加用户 -->
+    <insert id="saveJapan" parameterType="com.lue.pojo.Japan">
+        insert into japan(id,href,local,num,title,brief,image,name)
+        values(default,#{href},#{local},#{num},#{title},#{brief},#{image},#{name})
+    </insert>
+    <select id="selectJapan" resultType="com.lue.pojo.Japan" parameterType="int">
+        select * from japan a where 1=1
+        <if test="name!=null and name!=''">
+            and upper(a.name) like concat(concat('%',upper(#{name})),'%')
+        </if>
+        <if test="num!=null and num!=''">
+            and upper(a.num) like concat(concat('%',upper(#{num})),'%')
+        </if>
+    </select>
+    <select id="selectJapanByid" resultType="com.lue.pojo.Japan" parameterType="int">
+        select * from japan where id=#{id}
+    </select>
+    <delete id="deleteJapan" parameterType="java.lang.String">
+        delete from japan where num=#{num}
+    </delete>
+    <select id="selectJapanCountBytitle" parameterType="java.lang.String" resultType="int">
+        select count(id) from japan where title=#{title}
+    </select>
+</mapper>

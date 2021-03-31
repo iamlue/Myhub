@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Basic SideMenu - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="easyui-1.7/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="easyui-1.7/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/anime.css?ver=2">
+    <script type="text/javascript" src="easyui-1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="easyui-1.7/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/Anime.js?ver=2"></script>
+</head>
+
+<body>
+<div class="main">
+    <div class="main_header">
+        <img class="small_icon" src="image/aixin.PNG"/><span id="span_title"></span>
+        <a id="anime_add" href="javascript:" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+        <a id="anime_delete" href="javascript:" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">删除</a>
+        <hr style="border:none;border-top:1px dashed #afa1a1"/>
+    </div>
+    <div class="main_body">
+        <ul id="ulId"></ul>
+        <div class="page" id="pageId">
+            <select style="float: left;" id="pageCount">
+                <option value="50" selected="selected">50</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <p></p>
+
+        </div>
+    </div>
+    <div class="videoPlay" id="VideoId"></div>
+</div>
+<div id="anime_add_dialog" style="display: none;">
+    <form id="anime_form" method="post" enctype="multipart/form-data">
+
+        <div>
+            <label for="name">标题:</label>
+
+            <input class="easyui-textbox" name="name" id="animeName"/>
+
+        </div>
+        <div>
+            <label for="image">图片:</label>
+
+            <input class="easyui-filebox" name="image" id="animeImage"/>
+
+        </div>
+        <div>
+            <label for="local">视频路径:</label>
+
+            <input class="easyui-textbox" name="local" id="animeLocal"/>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

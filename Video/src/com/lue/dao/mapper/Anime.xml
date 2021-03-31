@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lue.dao.mapper.AnimeMapper">
+    <!-- 添加用户 -->
+    <insert id="saveAnime" parameterType="com.lue.pojo.Anime">
+        insert into anime(id,local,title,brief,image,name) values(default,#{local},#{title},#{brief},#{image},#{name})
+    </insert>
+    <select id="selectAnime" resultType="com.lue.pojo.Anime" parameterType="int">
+        select * from anime a where 1=1
+        <if test="title!=null and title!=''">
+            and upper(a.title) like concat(concat('%',upper(#{title})),'%')
+        </if>
+        limit #{pageIndexs},#{pageCount}
+    </select>
+    <select id="selectAnimeByid" resultType="com.lue.pojo.Anime" parameterType="int">
+        select * from anime where id=#{id}
+    </select>
+    <delete id="deleteAnime" parameterType="java.lang.String">
+        delete from anime where num=#{num}
+    </delete>
+    <select id="selectAnimeCountBytitle" parameterType="java.lang.String" resultType="int">
+        select count(id) from anime where title=#{title}
+    </select>
+    <update id="editAnime" parameterType="com.lue.pojo.Anime">
+        update anime set local=#{local},name=#{name}
+        <if test="image!=null and image!=''">
+            ,image=#{image}
+        </if>
+        where id=#{id};
+    </update>
+</mapper>
