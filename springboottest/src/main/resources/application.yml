@@ -1,0 +1,15 @@
+server:
+  path: /hello
+  port: 8081
+
+person:
+  name: lue
+  age: 16
+  dog:
+    name: lili
+  pets: [cat,dog,pig]
+#配置项目热部署
+spring:
+  devtools:
+    restart:
+      enabled: true
